@@ -20,8 +20,7 @@ namespace WebMoodle.Client.Services
     
         public async Task<MoodlePost> GetMoodlePostByUrl(string url)
         {
-            //var post = await _http.GetFromJsonAsync<MoodlePost>($"api/Moodle/{url}");
-            //return post;
+            
 
             var result = await _http.GetAsync($"api/Moodle/{url}");
             if(result.StatusCode != System.Net.HttpStatusCode.OK)

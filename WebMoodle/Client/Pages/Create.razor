@@ -1,0 +1,17 @@
+﻿@page "/create"
+
+<h3>Create New </h3>
+<EditForm Model="@newMoodlePost" OnValidSubmit="CreateNewMoodlePost">
+    <button type="submit" class="btn btn-dark">Create</button>
+
+</EditForm>
+
+@code {
+    WebMoodle.Shared.MoodlePost newMoodlePost = new WebMoodle.Shared.MoodlePost();
+
+    void CreateNewMoodlePost()
+    {
+        Console.WriteLine("Announce it");
+    }
+
+}
