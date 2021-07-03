@@ -1,0 +1,28 @@
+﻿@using WebMoodle.Shared
+@inject WebMoodle.Client.Services.IMoodleService MoodleService 
+
+@foreach (var post in Posts)
+            {
+                <div styles="margin: 20px;">
+                    <div>
+                       <h3> @post.Title</h3>
+                    </div>
+                    <div>
+                        @post.Description
+                    </div>
+                    <div>
+                        <a href="/posts/@post.Url">Read more...</a>
+                    </div>
+
+                </div>
+            }
+
+@code {
+    private List<MoodlePost> Posts = new List<MoodlePost>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        Posts = await MoodleService.GetMoodlePosts();
+    }
+
+}

@@ -1,0 +1,28 @@
+﻿@page "/posts/{url}"
+@inject WebMoodle.Client.Services.IMoodleService MoodleService
+
+@if (CurrentPost == null)
+{
+                <span>Loading....</span>
+}
+else
+{
+
+<h3>@CurrentPost.Title</h3>
+<div>
+    @CurrentPost.Content
+</div>
+}
+
+@code {
+    private WebMoodle.Shared.MoodlePost CurrentPost;
+
+    [Parameter]
+    public string Url { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        CurrentPost = await MoodleService.GetMoodlePostByUrl(Url);
+    }
+
+}
