@@ -10,6 +10,7 @@ namespace WebMoodle.Client.Services
     {
         Task<List<MoodlePost>> GetMoodlePosts();
         Task<MoodlePost> GetMoodlePostByUrl(string url);
+        Task<MoodlePost> CreateNewMoodlePost(MoodlePost request);
 
     }
 }

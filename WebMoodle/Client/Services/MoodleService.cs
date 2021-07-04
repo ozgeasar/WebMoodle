@@ -17,7 +17,13 @@ namespace WebMoodle.Client.Services
         {
             _http = http;
         }
-    
+
+        public async Task<MoodlePost> CreateNewMoodlePost(MoodlePost request)
+        {
+            var result = await _http.PostAsJsonAsync("api/Moodle", request);
+            return await result.Content.ReadFromJsonAsync<MoodlePost>();
+        }
+
         public async Task<MoodlePost> GetMoodlePostByUrl(string url)
         {
             

@@ -37,5 +37,15 @@ namespace WebMoodle.Server.Controllers
             }
             return Ok(post);
         }
+
+        [HttpPost]
+        public async Task<ActionResult<MoodlePost>> CreateNewMoodlePost(MoodlePost request)
+        {
+            _context.Add(request);
+            await _context.SaveChangesAsync();
+
+            return request;
+        }
+
     }
 }

@@ -39,9 +39,10 @@
 @code {
     WebMoodle.Shared.MoodlePost newMoodlePost = new WebMoodle.Shared.MoodlePost();
 
-    void CreateNewMoodlePost()
+    async Task CreateNewMoodlePost()
     {
-        Console.WriteLine("Announce it");
+        var result = await MoodleService.CreateNewMoodlePost(newMoodlePost);
+        NavigationManager.NavigateTo($"posts/{result.Url}");
     }
 
 }
